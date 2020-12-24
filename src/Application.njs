@@ -14,6 +14,7 @@ class Application extends Nullstack {
     await this.startServer(context);
     await this.startProject(context);
     await this.startDatabase(context);
+    await this.startWorker(context);
     About.start(context);
   }
 
@@ -41,11 +42,27 @@ class Application extends Nullstack {
     context.database = await databaseClient.db(secrets.databaseName);
   }
 
+  static async startWorker({worker}) {
+    worker.preload = [
+      '/roboto-v20-latin-300.woff2',
+      '/crete-round-v9-latin-regular.woff2'
+    ]
+  }
+
   // https://nullstack.app/context-page
   // https://nullstack.app/full-stack-lifecycle
   prepare({page}) {
     page.locale = 'en';
     page.description = 'This is an experiment using Nullstack for the front-end and back-end';
+  }
+
+  renderPreloader() {
+    return (
+      <head>
+        <link rel="preload" href="/roboto-v20-latin-300.woff2" as="font" type="font/woff2" crossorigin />
+        <link rel="preload" href="/crete-round-v9-latin-regular.woff2" as="font" type="font/woff2" crossorigin />
+      </head>
+    )
   }
 
   // https://nullstack.app/routes-and-params
@@ -58,10 +75,12 @@ class Application extends Nullstack {
           <a href="/"> Take The Poll </a>
           <a href="/about"> What is this? </a>
         </nav>
+        {!worker.responsive && <Offline route="*" />}
         <Poll route="/" />
         <About route="/about" />
         <Pokemon route="/:name" />
         <GoogleAnalytics id="G-GB6NSD560D" />
+        <Preloader />
       </main>
     )
   }
