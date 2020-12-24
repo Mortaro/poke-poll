@@ -2,6 +2,7 @@ import Nullstack from 'nullstack';
 import Poll from './Poll';
 import About from './About';
 import Pokemon from './Pokemon';
+import Offline from './Offline';
 import GoogleAnalytics from 'nullstack-google-analytics';
 
 // https://nullstack.app/styles
@@ -56,6 +57,8 @@ class Application extends Nullstack {
     page.description = 'This is an experiment using Nullstack for the front-end and back-end';
   }
 
+  // https://nullstack.app/renderable-components
+  // https://nullstack.app/server-side-rendering
   renderPreloader() {
     return (
       <head>
@@ -71,11 +74,13 @@ class Application extends Nullstack {
   render({worker}) {
     return (
       <main data-loading={worker.fetching}>
-        <nav>
-          <a href="/"> Take The Poll </a>
-          <a href="/about"> What is this? </a>
-        </nav>
-        {!worker.responsive && <Offline route="*" />}
+        {worker.responsive ?
+          <nav>
+            <a href="/"> Take The Poll </a>
+            <a href="/about"> What is this? </a>
+          </nav> :
+          <Offline route="*" />
+        }
         <Poll route="/" />
         <About route="/about" />
         <Pokemon route="/:name" />
