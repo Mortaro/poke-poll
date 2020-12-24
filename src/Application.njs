@@ -11,9 +11,15 @@ class Application extends Nullstack {
 
   // https://nullstack.app/application-startup
   static async start(context) {
+    await this.startServer(context);
     await this.startProject(context);
     await this.startDatabase(context);
     About.start(context);
+  }
+
+  // https://nullstack.app/server-request-and-response
+  static async startServer({server}) {
+    server.port = process.env.PORT || 5000;
   }
 
   // https://nullstack.app/context-project
