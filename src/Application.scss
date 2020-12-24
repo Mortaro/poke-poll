@@ -48,10 +48,12 @@ h1 {
   font-weight: 700;
 }
 
-h2 {
+h3 {
+  border-bottom: 1px solid var(--neutral-color);
+  padding-bottom: 0.5rem;
+  display: block;
   font-family: var(--primary-font-family);
   font-size: 1.5rem;
-  margin-bottom: 1rem;
   font-weight: 500;
 }
 

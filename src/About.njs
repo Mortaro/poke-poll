@@ -26,7 +26,7 @@ class About extends Nullstack {
   // https://nullstack.app/context-page
   // https://nullstack.app/full-stack-lifecycle
   prepare({project, page}) {
-    page.title = `What is ${project.name}`;
+    page.title = `What is ${project.name}?`;
   }
 
   // https://nullstack.app/context

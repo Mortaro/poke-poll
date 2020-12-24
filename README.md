@@ -1,4 +1,4 @@
-# Poke Poll
+# What is Poke Poll?
 
 This is an experiment using Nullstack for the front-end and back-end.
 
@@ -15,6 +15,6 @@ Data comes from the [PokeAPI](https://pokeapi.co/).
 
 Pokémon and Pokémon character names are trademarks of Nintendo.
 
-## License
+### License
 
 Poke Poll is released under the [MIT License](https://opensource.org/licenses/MIT).
