@@ -1,0 +1,23 @@
+{
+  "name": "poke-poll",
+  "version": "0.0.1",
+  "description": "Experiment using Nullstack for the front-end and back-end",
+  "author": "Mortaro",
+  "repository": "github:nullstack/poke-poll",
+  "license": "MIT",
+  "devDependencies": {
+    "nullstack": "~0.9.0"
+  },
+  "scripts": {
+    "start": "npx webpack --config node_modules/nullstack/webpack.config.js --mode=development --watch",
+    "build": "npx webpack --config node_modules/nullstack/webpack.config.js --mode=production"
+  },
+  "engines": {
+    "node": "12.x"
+  },
+  "dependencies": {
+    "mongodb": "^3.6.3",
+    "nullstack-google-analytics": "^1.0.4",
+    "remarkable": "^2.0.1"
+  }
+}

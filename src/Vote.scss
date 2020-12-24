@@ -1,0 +1,35 @@
+form {
+  margin-bottom: 1rem;
+
+  label {
+    display: block;
+    font-family: var(--primary-font-family);
+    margin-bottom: 0.5rem;
+  }
+
+  button {
+    background-color: var(--primary-color);
+    color: var(--soft-color);
+    border: 0;
+    padding: 1rem 1.5rem;
+    width: 76px;
+  }
+
+  input {
+    background-color: var(--neutral-color);
+    color: var(--heavy-color);
+    width: calc(100% - 76px);
+    border: 0;
+    padding: 1rem 1.5rem;
+  }
+
+  p {
+    color: var(--danger-color);
+    margin-top: 1rem;
+  }
+
+  [disabled] {
+    opacity: 0.6;
+  }
+
+}
