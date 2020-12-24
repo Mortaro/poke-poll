@@ -46,7 +46,7 @@ class About extends Nullstack {
   // https://nullstack.app/renderable-components
   render({readme}) {
     return (
-      <article html={readme} />
+      <article html={readme || ''} />
     )
   }
 

@@ -30,7 +30,9 @@ class Pokemon extends Nullstack {
   }
   
   // https://nullstack.app/renderable-components
-  render() {
+  // https://nullstack.app/instance-self
+  render({self}) {
+    if(!self.initiated) return false;
     return (
       <article> 
         <h1> {this.name} </h1>
