@@ -25,7 +25,7 @@ class Application extends Nullstack {
   // https://nullstack.app/context-project
   static async startProject({project}) {
     project.name = 'Poke Poll';
-    project.domain = 'nullstack.app';
+    project.domain = 'nullstack-poke-poll.herokuapp.com';
     project.color = '#D22365';
   }
 
@@ -45,6 +45,7 @@ class Application extends Nullstack {
   // https://nullstack.app/full-stack-lifecycle
   prepare({page}) {
     page.locale = 'en';
+    page.description = 'This is an experiment using Nullstack for the front-end and back-end';
   }
 
   // https://nullstack.app/routes-and-params
