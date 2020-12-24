@@ -15,6 +15,6 @@ Data comes from the [PokeAPI](https://pokeapi.co/).
 
 Pokémon and Pokémon character names are trademarks of Nintendo.
 
-### License
+## License
 
 Poke Poll is released under the [MIT License](https://opensource.org/licenses/MIT).

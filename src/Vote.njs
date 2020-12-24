@@ -61,8 +61,8 @@ class Vote extends Nullstack {
   render({worker}) {
     return (
       <form onsubmit={this.submitVote}> 
-        <label> Which is the best Pokemon? You can vote using a Pokemon name or number</label>
-        <input bind={this.name} />
+        <label for="name"> Which is the best Pokemon? You can vote using a Pokemon name or number</label>
+        <input bind={this.name} id="name" />
         <button disabled={worker.loading.persistVote}> Vote </button>
         {this.message && <p>{this.message}</p>}
       </form>

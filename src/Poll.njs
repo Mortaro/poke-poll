@@ -30,8 +30,8 @@ class Poll extends Nullstack {
     return (
       <li>
         <div>
-          <h3>#{ranking}</h3>
-          <img src={sprite} width="96" height="96" />
+          <h2>#{ranking}</h2>
+          <img src={sprite} alt={name} width="96" height="96" />
           <span>#{number}</span>
           <a href={`/${name}`}>{name}</a>
           <small>{votes} votes</small>
