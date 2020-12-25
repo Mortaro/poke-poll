@@ -20,8 +20,9 @@ class Application extends Nullstack {
   }
 
   // https://nullstack.app/server-request-and-response
-  static async startServer({server}) {
-    server.port = process.env.PORT || 5000;
+  static async startServer({secrets, server}) {
+    secrets.development.serverPort = 5000;
+    server.port = secrets.serverPort;
   }
 
   // https://nullstack.app/context-project
