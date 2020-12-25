@@ -4,6 +4,7 @@ import About from './About';
 import Pokemon from './Pokemon';
 import Offline from './Offline';
 import GoogleAnalytics from 'nullstack-google-analytics';
+import {MongoClient} from 'mongodb';
 
 // https://nullstack.app/styles
 import './Application.scss';
@@ -37,7 +38,6 @@ class Application extends Nullstack {
     const {secrets} = context;
     secrets.development.databaseHost = 'mongodb://localhost:27017';
     secrets.databaseName = 'poke-poll';
-    const {MongoClient} = await import('mongodb');
     const databaseClient = new MongoClient(secrets.databaseHost);
     await databaseClient.connect();
     context.database = await databaseClient.db(secrets.databaseName);

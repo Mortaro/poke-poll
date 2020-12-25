@@ -1,11 +1,11 @@
 import Nullstack from 'nullstack';
+import {readFileSync} from 'fs';
+import {Remarkable} from 'remarkable';
 
 class About extends Nullstack {
 
   // https://nullstack.app/application-startup
   static async start(context) {
-    const {readFileSync} = await import('fs');
-    const {Remarkable} = await import('remarkable');
     const text = readFileSync('README.md', 'utf-8');
     const md = new Remarkable();
     md.use((md) => {
