@@ -31,11 +31,11 @@ class Pokemon extends Nullstack {
   
   // https://nullstack.app/renderable-components
   // https://nullstack.app/instance-self
-  render({self}) {
-    if(!self.initiated) return false;
+  render({environment, self}) {
+    if(environment.client && !self.initiated) return false;
     return (
       <article> 
-        <h1> {this.name} </h1>
+        <h1>{this.name}</h1>
         {!!this.sprite && 
           <img src={this.sprite} alt={this.name} width="96" height="96" />
         }
