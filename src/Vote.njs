@@ -6,13 +6,13 @@ import './Vote.scss';
 class Vote extends Nullstack {
 
   // https://nullstack.app/stateful-components
-  name = '';
+  choice = '';
   message = '';
 
   // https://nullstack.app/server-functions
   // https://nullstack.app/context
-  static async persistVote({database, name}) {
-    const slug = name.replace(/[^\w\s]/gi, '').toLowerCase();
+  static async persistVote({database, choice}) {
+    const slug = choice.replace(/[^\w\s]/gi, '').toLowerCase();
     const exists = await database.collection('pokemons').findOne({$or: [
       {name: slug},
       {number: parseInt(slug)}
@@ -31,7 +31,7 @@ class Vote extends Nullstack {
         types: data.types.map(({type}) => type.name)
       };
       await database.collection('pokemons').insertOne(pokemon);
-      return {pokemon};
+      return {name: pokemon.name};
     } else {
       const {value: pokemon} = await database.collection('pokemons').findAndModify(
         {_id: exists._id},
@@ -39,7 +39,7 @@ class Vote extends Nullstack {
         {$inc: {votes: 1}},
         {new: true}
       );
-      return {pokemon};
+      return {name: pokemon.name};
     }
   }
 
@@ -47,11 +47,11 @@ class Vote extends Nullstack {
   // https://nullstack.app/context
   // https://nullstack.app/routes-and-params
   async submitVote({router}) {
-    const {error, pokemon} = await this.persistVote({name: this.name});
+    const {error, name} = await this.persistVote({choice: this.choice});
     if(error) {
       this.message = error;
     } else {
-      router.url = `/${pokemon.name}`;
+      router.url = `/${name}`;
     }
   }
   
@@ -61,8 +61,8 @@ class Vote extends Nullstack {
   render({worker}) {
     return (
       <form onsubmit={this.submitVote}> 
-        <label for="name"> Which is the best Pokemon? You can vote using a Pokemon name or number</label>
-        <input bind={this.name} id="name" />
+        <label for="choice"> Which is the best Pokemon? You can vote using a Pokemon name or number</label>
+        <input bind={this.choice} id="choice" />
         <button disabled={worker.loading.persistVote}> Vote </button>
         {this.message && <p>{this.message}</p>}
       </form>
