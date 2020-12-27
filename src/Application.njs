@@ -43,6 +43,7 @@ class Application extends Nullstack {
     context.database = await databaseClient.db(secrets.databaseName);
   }
 
+   // https://nullstack.app/service-worker
   static async startWorker({worker}) {
     worker.preload = [
       '/roboto-v20-latin-300.woff2',
@@ -51,13 +52,14 @@ class Application extends Nullstack {
   }
 
   // https://nullstack.app/context-page
-  // https://nullstack.app/full-stack-lifecycle
+  // https://nullstack.app/full-stack-lifecycle#prepare
   prepare({page}) {
     page.locale = 'en';
     page.description = 'This is an experiment using Nullstack for the front-end and back-end';
   }
 
-  // https://nullstack.app/renderable-components
+  // https://nullstack.app/renderable-components#inner-components
+  // https://nullstack.app/renderable-components#the-head-tag
   // https://nullstack.app/server-side-rendering
   renderPreloader() {
     return (

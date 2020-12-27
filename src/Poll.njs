@@ -9,6 +9,7 @@ class Poll extends Nullstack {
   // https://nullstack.app/stateful-components
   pokemons = [];
 
+  // https://nullstack.app/full-stack-lifecycle#prepare
   // https://nullstack.app/context-page
   prepare({project, page}) {
     page.title = `${project.name} built with Nullstack!`;
@@ -20,7 +21,7 @@ class Poll extends Nullstack {
     return await database.collection('pokemons').find().sort({votes: -1}).limit(10).toArray();
   }
 
-  // https://nullstack.app/full-stack-lifecycle
+  // https://nullstack.app/full-stack-lifecycle#initiate
   async initiate() {
     this.pokemons = await this.getTopTenPokemons();
   }

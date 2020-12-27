@@ -5,11 +5,11 @@ import './Vote.scss';
 
 class Vote extends Nullstack {
 
-  // https://nullstack.app/stateful-components
+  // https://nullstack.app/stateful-components#mutability
   choice = '';
   message = '';
 
-  // https://nullstack.app/server-functions
+  // https://nullstack.app/server-functions#fetch-convenience
   // https://nullstack.app/context
   static async persistVote({database, choice}) {
     const slug = choice.replace(/[^\w\s]/gi, '').toLowerCase();
@@ -43,9 +43,9 @@ class Vote extends Nullstack {
     }
   }
 
-  // https://nullstack.app/stateful-components
+  // https://nullstack.app/stateful-components#event-context
   // https://nullstack.app/context
-  // https://nullstack.app/routes-and-params
+  // https://nullstack.app/routes-and-params#router
   async submitVote({router}) {
     const {error, name} = await this.persistVote({choice: this.choice});
     if(error) {
@@ -57,7 +57,7 @@ class Vote extends Nullstack {
   
   // https://nullstack.app/renderable-components
   // https://nullstack.app/two-way-bindings 
-  // https://nullstack.app/service-worker
+  // https://nullstack.app/service-worker#loading-screens
   render({worker}) {
     return (
       <form onsubmit={this.submitVote}> 

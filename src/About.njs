@@ -4,7 +4,7 @@ import {Remarkable} from 'remarkable';
 
 class About extends Nullstack {
 
-  // https://nullstack.app/application-startup
+  // https://nullstack.app/application-startup#dependency-startup-pattern
   static async start(context) {
     const text = readFileSync('README.md', 'utf-8');
     const md = new Remarkable();
@@ -24,7 +24,7 @@ class About extends Nullstack {
   }
 
   // https://nullstack.app/context-page
-  // https://nullstack.app/full-stack-lifecycle
+  // https://nullstack.app/full-stack-lifecycle#prepare
   prepare({project, page}) {
     page.title = `What is ${project.name}?`;
   }
@@ -36,14 +36,14 @@ class About extends Nullstack {
   }
 
   // https://nullstack.app/context
-  // https://nullstack.app/full-stack-lifecycle
+  // https://nullstack.app/full-stack-lifecycle#initiate
   async initiate(context) {
     if(!context.readme) {
       context.readme = await this.getReadme();
     }
   }
   
-  // https://nullstack.app/renderable-components
+  // https://nullstack.app/renderable-components#inner-html
   render({readme}) {
     return (
       <article html={readme || ''} />
