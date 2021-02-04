@@ -17,18 +17,18 @@ class Application extends Nullstack {
     await this.startProject(context);
     await this.startDatabase(context);
     await this.startWorker(context);
-    About.start(context);
+    await About.start(context);
   }
 
   // https://nullstack.app/server-request-and-response
   static async startServer({server}) {
-    server.port = process.env.PORT || 5000;
+    server.port = process.env.PORT || 5001;
   }
 
   // https://nullstack.app/context-project
   static async startProject({project}) {
     project.name = 'Poke Poll';
-    project.domain = 'nullstack-poke-poll.herokuapp.com';
+    project.domain = 'nullstack.app';
     project.color = '#D22365';
   }
 

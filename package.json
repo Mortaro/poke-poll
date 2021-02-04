@@ -6,7 +6,7 @@
   "repository": "github:nullstack/poke-poll",
   "license": "MIT",
   "devDependencies": {
-    "nullstack": "0.9.7"
+    "nullstack": "~0.9.0"
   },
   "scripts": {
     "start": "npx webpack --config node_modules/nullstack/webpack.config.js --mode=development --watch",
