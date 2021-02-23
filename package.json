@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Experiment using Nullstack for the front-end and back-end",
   "author": "Mortaro",
-  "repository": "github:nullstack/poke-poll",
+  "repository": "github:Mortaro/poke-poll",
   "license": "MIT",
   "devDependencies": {
     "nullstack": "~0.9.0"
